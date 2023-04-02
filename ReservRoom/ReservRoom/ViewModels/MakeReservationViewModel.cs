@@ -1,5 +1,6 @@
 ﻿using ReservRoom.Commands;
 using ReservRoom.Models;
+using ReservRoom.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,10 +85,10 @@ namespace ReservRoom.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public MakeReservationViewModel(Hotel hotel)
+        public MakeReservationViewModel(Hotel hotel, NavigationStore navigationStore, Func<ReservationListingViewModel> CreateReservationListingViewModel)
         {
             SubmitCommand = new MakeReservationCommand(this,hotel);
-            CancelCommand = new CancelCommand();
+            CancelCommand = new NavigateCommand(navigationStore,CreateReservationListingViewModel);
         }
     }
 }

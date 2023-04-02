@@ -63,6 +63,7 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\MakeReservationCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MakeReservationViewModel.cs" />
     <Compile Include="ViewModels\ReservationListingViewModel.cs" />
@@ -127,5 +128,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

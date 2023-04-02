@@ -1,4 +1,5 @@
 ﻿using ReservRoom.Models;
+using ReservRoom.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,18 @@ namespace ReservRoom.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
+        private readonly NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public MainViewModel(Hotel hotel)
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new MakeReservationViewModel(hotel);
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChange;
+        }
+
+        private void OnCurrentViewModelChange()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }
