@@ -1,2 +1,2 @@
 # SS-MVVM
-SingletonSean repository for coding that i wrote during the youtube course.
+SingletonSean repository for code that i wrote during the youtube course.
